@@ -1,0 +1,3 @@
+img_path,seg_path,label
+./example_data/good_sample/img/01_A1_f300.tiff,,0
+./example_data/abnormal_sample/img/01_B1_f100.tiff,./example_data/abnormal_sample/mask/01_B1_f100.tiff,1

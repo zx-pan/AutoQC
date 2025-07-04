@@ -1,0 +1,40 @@
+# @package _global_
+
+# to execute this experiment run:
+# python run.py experiment=example_full.yaml
+
+defaults:
+  - override /trainer: default.yaml # override trainer to null so it's not loaded from main config defaults...
+  - override /model: DDPM_2D.yaml
+  - override /datamodule: DNA.yaml
+datamodule:
+  cfg:
+    imageDim: [192, 192, 1]
+model:
+  cfg:
+    model_name: AE
+    fix_timestep: True
+    test_timesteps: 1
+    dim_mults: [1,2,2]
+    unet_dim: 128
+    objective: pred_x0
+    loss: l1+ssim
+    residualmode: l1+ssim
+    alpha: 0.5
+    OpenaiUnet: True # use openai unet
+    conv_resample: True
+    noisetype: simplex
+    dropout_unet: 0.0
+num_folds: 1
+logger:
+  wandb:
+    project: Cell_UAD
+
+ckpt_path: best
+
+trainer:
+  max_epochs: 300
+  precision: 32
+
+name : ae_cell_benchmark_crop_192_simplex_l1ssim_alpha_0.5_t_50_300_epochs
+seed: 3141

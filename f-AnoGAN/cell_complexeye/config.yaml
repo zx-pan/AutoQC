@@ -1,0 +1,85 @@
+data_dir: /afs/crc.nd.edu/user/z/zpan3/Datasets/Cell_Anomaly_Detection
+
+cfg:
+  name: DNA
+  path:
+    pathBase: ${data_dir}
+
+    DNA:
+      IDs:
+        train:
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/normal_train_fold0.csv
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/normal_train_fold1.csv
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/normal_train_fold2.csv
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/normal_train_fold3.csv
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/normal_train_fold4.csv
+        val:
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/normal_val_fold0.csv
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/normal_val_fold1.csv
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/normal_val_fold2.csv
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/normal_val_fold3.csv
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/normal_val_fold4.csv
+    DNA_ANO:
+      IDs:
+        test:
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/draw.csv
+        val:
+          - ${data_dir}/cell_ad_benchmark_data_v2/splits/draw.csv
+#        test:
+#          - ${data_dir}/cell_ad_benchmark_data_v2/splits/selected_samples_test_fold0.csv
+#          - ${data_dir}/cell_ad_benchmark_data_v2/splits/selected_samples_test_fold1.csv
+#          - ${data_dir}/cell_ad_benchmark_data_v2/splits/selected_samples_test_fold2.csv
+#          - ${data_dir}/cell_ad_benchmark_data_v2/splits/selected_samples_test_fold3.csv
+#          - ${data_dir}/cell_ad_benchmark_data_v2/splits/selected_samples_test_fold4.csv
+#        val:
+#          - ${data_dir}/cell_ad_benchmark_data_v2/splits/selected_samples_val_fold0.csv
+#          - ${data_dir}/cell_ad_benchmark_data_v2/splits/selected_samples_val_fold1.csv
+#          - ${data_dir}/cell_ad_benchmark_data_v2/splits/selected_samples_val_fold2.csv
+#          - ${data_dir}/cell_ad_benchmark_data_v2/splits/selected_samples_val_fold3.csv
+#          - ${data_dir}/cell_ad_benchmark_data_v2/splits/selected_samples_val_fold4.csv
+
+
+  imageDim: [192, 192, 1]
+  interRes: [8,8,5] #[HxWxD]
+  cropMode: 'isotropic'
+  spatialDims: ${model.cfg.spatialDims}
+  unisotropic_sampling: True
+  sample_set: False
+
+  preLoad: True
+  curvatureFlow: True
+  percentile: True
+  pad: True
+  permute: False
+
+  # Augmentations
+  randomRotate: False
+  rotateDegree: 5
+  horizontalFlip: False
+  randomBrightness: False
+  brightnessRange: (0.75,1.25)
+  randomContrast: False
+  contrastRange: (0.75,1.25)
+
+  num_workers: 4
+  batch_size: 8
+  droplast: True
+
+  # Model
+  unet_dim: 128
+  dropout_unet: 0.0
+  dim_mults: [1,2,2]
+
+  # Evaluation
+  mode: t1
+  resizedEvaluation: True
+  testsets: # specify which test sets to evaluate!
+  - Datamodules_eval.DNA_ANO
+  - Datamodules_train.DNA
+
+  medianFiltering: True
+  threshold: auto # 'auto' for autothresholding, any number for manually setting
+
+  ## Evaluation
+  saveOutputImages: True
+  evalSeg: True
