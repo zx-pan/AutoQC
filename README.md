@@ -10,7 +10,7 @@ AutoQC is a benchmarking framework for automatic quality control of high-through
 It provides a benchmark dataset and a set of baseline methods for evaluating the performance of quality control algorithms.
 
 <p align="center">
-  <img src="figs/dataset.png" alt="Overview of the toolbox" width="70%" height="70%">
+  <img src="figs/dataset.png" width="70%">
 </p>
 <p align="center">Fig. 1: Overview of the benchmark dataset.</p>
 
