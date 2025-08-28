@@ -1,7 +1,7 @@
 <div align="center">
 <h2>AutoQC</h2>
 
-[Zixuan Pan](https://scholar.google.com/citations?user=3VuW2gcAAAAJ&hl=en), Justin Sonneck, Dennis Nagel, Anja Hasenburg, Matthias Gunzer, [Yiyu Shi](https://scholar.google.com/citations?hl=en&user=LrjbEkIAAAAJ&view_op=list_works), [Jianxu Chen](https://scholar.google.com/citations?hl=en&user=HdolpOgAAAAJ)
+[Zixuan Pan](https://scholar.google.com/citations?user=3VuW2gcAAAAJ&hl=en), Justin Sonneck, Dennis Nagel, Anja Hasenberg, Matthias Gunzer, [Yiyu Shi](https://scholar.google.com/citations?hl=en&user=LrjbEkIAAAAJ&view_op=list_works), [Jianxu Chen](https://scholar.google.com/citations?hl=en&user=HdolpOgAAAAJ)
 
 </div>
 
@@ -26,6 +26,13 @@ methods on Python 3.9.7 and cuda 11.8.
 ## Quick Start
 We provide a [jupyter notebook](example.ipynb) in the root directory of this repository, which can be used to run inference on the example data.
 
+To download the benchmark dataset from [BioStudies](https://doi.org/10.6019/S-BIAD2133):
+
+```bash
+python download_autoqc_data.py --out ./data
+```
+
+Using the flags `--only_train`, `--only_test`, or `--only_splits`, you can download individual subsets.
 
 ## Training and Evaluation
 Before training, please change the config.yaml, datamodule/DNA.yaml and the method yaml files in the `configs` folder according to your needs.
