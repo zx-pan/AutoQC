@@ -1,7 +1,7 @@
 <div align="center">
 <h2>AutoQC</h2>
 
-[Zixuan Pan](https://scholar.google.com/citations?user=3VuW2gcAAAAJ&hl=en), Justin Sonneck, Dennis Nagel, Anja Hasenberg, Matthias Gunzer, [Yiyu Shi](https://scholar.google.com/citations?hl=en&user=LrjbEkIAAAAJ&view_op=list_works), [Jianxu Chen](https://scholar.google.com/citations?hl=en&user=HdolpOgAAAAJ)
+[Zixuan Pan](https://scholar.google.com/citations?user=3VuW2gcAAAAJ&hl=en), [Justin Sonneck](https://scholar.google.com/citations?user=ReDjyuAAAAAJ&hl=en&oi=ao), [Dennis Nagel](https://scholar.google.com/citations?user=bW4feA4AAAAJ&hl=en&oi=ao), Anja Hasenberg, [Matthias Gunzer](https://scholar.google.com/citations?user=1uh0hw4AAAAJ&hl=en&oi=ao), [Yiyu Shi](https://scholar.google.com/citations?hl=en&user=LrjbEkIAAAAJ&view_op=list_works), [Jianxu Chen](https://scholar.google.com/citations?hl=en&user=HdolpOgAAAAJ)
 
 </div>
 
