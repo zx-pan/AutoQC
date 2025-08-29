@@ -20,17 +20,58 @@ We also provide the pre-trained models for all baselines at [Google Drive](https
 Once downloaded, please unzip the files and place them in the `data` folder of this repository.
 
 ## Installation
-Before starting, we recommend to create a new conda environment, and install the required packages in [requirements.txt](requirements.txt). We test our
-methods on Python 3.9.7 and cuda 11.8.
+Before starting, we recommend creating a new conda environment and installing the required packages listed in [requirements.txt](requirements.txt). We test our methods on Python 3.9.7 and CUDA 11.8.
+
+### Create a Conda Environment
+You can create and activate a new conda environment with the following commands:
+
+```bash
+conda create -n autoqc python=3.9.7
+conda activate autoqc
+pip install -r requirements.txt
+```
+
 
 ## Quick Start
 We provide a [jupyter notebook](example.ipynb) in the root directory of this repository, which can be used to run inference on the example data.
 
 
 ## Training and Evaluation
-Before training, please change the config.yaml, datamodule/DNA.yaml and the method yaml files in the `configs` folder according to your needs.
-Then, you can run the training script as follows:
+
+### Configuration
+1. Edit the configuration files in the `configs` folder to match your experiment setup:
+  - `configs/config.yaml`: Main configuration for training and evaluation.
+  - `configs/datamodule/DNA.yaml`: Set the correct paths for dataset splits.
+  - `configs/experiment/Benchmark_Methods/*.yaml`: Select and configure the baseline method you wish to use.
+  - `pc_environment.env`: Set the paths for logs and data storage.
+
+To reproduce the baseline results from the paper, you only need to update the split paths in `datamodule/DNA.yaml` and set the log/data paths in `pc_environment.env`.
+
+### Training
+Run the training script:
 ```bash
 bash train.sh
 ```
-The test set will be evaluated automatically after training.
+This will start the training process using the selected configuration. After training completes, the model will automatically evaluate on the test set and save the results.
+
+### Evaluation
+
+If you want to directly perform evaluation using a pre-trained model, follow these steps:
+
+1. Download the desired pre-trained model checkpoint from the provided Google Drive link and place it in your workspace.
+2. In `configs/config.yaml`, set the following options:
+  - `onlyEval: True`  # This will skip training and run evaluation only
+  - `load_checkpoint: <path_to_your_checkpoint.ckpt>`  # Specify the path to your downloaded checkpoint
+
+Example snippet for `config.yaml`:
+```yaml
+onlyEval: True
+load_checkpoint: data/checkpoints/your_model.ckpt
+```
+
+Then run:
+```bash
+bash train.sh
+```
+The script will load the pre-trained model and perform evaluation on the test set, saving results and logs as configured.
+
