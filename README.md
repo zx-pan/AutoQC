@@ -1,7 +1,7 @@
 <div align="center">
 <h2>AutoQC</h2>
 
-[Zixuan Pan](https://scholar.google.com/citations?user=3VuW2gcAAAAJ&hl=en), Justin Sonneck, Dennis Nagel, Anja Hasenburg, Matthias Gunzer, [Yiyu Shi](https://scholar.google.com/citations?hl=en&user=LrjbEkIAAAAJ&view_op=list_works), [Jianxu Chen](https://scholar.google.com/citations?hl=en&user=HdolpOgAAAAJ)
+[Zixuan Pan](https://scholar.google.com/citations?user=3VuW2gcAAAAJ&hl=en), [Justin Sonneck](https://scholar.google.com/citations?user=ReDjyuAAAAAJ&hl=en&oi=ao), [Dennis Nagel](https://scholar.google.com/citations?user=bW4feA4AAAAJ&hl=en&oi=ao), Anja Hasenberg, [Matthias Gunzer](https://scholar.google.com/citations?user=1uh0hw4AAAAJ&hl=en&oi=ao), [Yiyu Shi](https://scholar.google.com/citations?hl=en&user=LrjbEkIAAAAJ&view_op=list_works), [Jianxu Chen](https://scholar.google.com/citations?hl=en&user=HdolpOgAAAAJ)
 
 </div>
 
@@ -35,6 +35,13 @@ pip install -r requirements.txt
 ## Quick Start
 We provide a [jupyter notebook](example.ipynb) in the root directory of this repository, which can be used to run inference on the example data.
 
+To download the benchmark dataset from [BioStudies](https://doi.org/10.6019/S-BIAD2133):
+
+```bash
+python download_autoqc_data.py --out ./data
+```
+
+Using the flags `--only_train`, `--only_test`, or `--only_splits`, you can download individual subsets.
 
 ## Training and Evaluation
 
